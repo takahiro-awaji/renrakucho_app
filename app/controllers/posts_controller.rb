@@ -1,4 +1,5 @@
 class PostsController < ApplicationController
+  before_action :set_post, only: [:show, :edit, :update, :destroy]
 
   def index
     @post = Post.new
@@ -20,16 +21,13 @@ class PostsController < ApplicationController
   end
 
   def show
-    @post = Post.find(params[:id])
   end
 
   def edit
-    @post = Post.find(params[:id])
   end
 
   def update
-    @post = Post.find(params[:id])
-    if @post.update(post_params)
+    if @post.update(post_update_params)
       redirect_to root_path
     else
       render 'edit'
@@ -37,7 +35,6 @@ class PostsController < ApplicationController
   end
 
   def destroy
-    @post = Post.find(params[:id])
     if @post.destroy
       redirect_to root_path
     else
@@ -51,7 +48,16 @@ class PostsController < ApplicationController
 
   private
 
+  def set_post
+    @post = Post.find(params[:id])
+  end
+
   def post_params
     params.require(:posts_tag).permit(:title, :content, :image, :name).merge(user_id: current_user.id)
   end
+
+  def post_update_params
+    params.require(:post).permit(:title, :content, :image).merge(user_id: current_user.id)
+  end
+
 end

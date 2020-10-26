@@ -8,6 +8,13 @@
 <div class="post-content">
   <%= @post.content %>
 </div>
+<ul class="tag">
+  <li class="tag-list">
+    <% @post.tags.each do |tag| %>
+      #<%= tag.name %>
+    <% end %>
+  </li>
+</ul>
 <%= image_tag @post.image.variant(resize: '200x200') if @post.image.attached?%>
 
 <%= render partial: 'likes/like' %>

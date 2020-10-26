@@ -1,9 +1,13 @@
 <div class="post">
   <h3> = 編集はこちらから = </h3>
-<%= form_with model: @post, local: true do |f| %>
+<%= form_with model: @post, url: post_path(@post), local: true do |f| %>
   <div class="content-table">
     <span>件名：</span><%= f.text_field :title, class: "content-title" %>
     <%= f.text_area :content, placeholder: "内容を入力してください", class: "content-form"%>
+  </div>
+  <div class="tag-field", id='tag-field'>
+    <%= f.label :name, "タグ" %>
+    <%= f.text_field :name, class: "input-tag" %>
   </div>
   <%= f.file_field :image %>
   <%= f.submit "投稿" %>
