@@ -1,0 +1,8 @@
+<div class="post">
+  <h3> = 編集はこちらから = </h3>
+<%= form_with model: @post, local: true do |f| %>
+  <%= f.text_area :content, placeholder: "内容を入力してください", class: "content-form"%>
+  <%= f.file_field :image %>
+  <%= f.submit "投稿" %>
+<% end %>
+</div>
