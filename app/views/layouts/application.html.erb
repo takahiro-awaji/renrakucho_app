@@ -17,7 +17,7 @@
         </div>
         <% if user_signed_in? %>
         <div class="login-user">
-          ログインしているユーザー： <%= current_user.name %>
+          ログインしているユーザー： <%= link_to current_user.name, user_path(current_user) %>
         </div>
         <% end %>
       </h1>
