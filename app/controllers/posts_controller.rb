@@ -1,5 +1,4 @@
 class PostsController < ApplicationController
-  before_action :move_to_index, except: [:index, :show, :search]
 
   def index
     @post = Post.new
@@ -7,15 +6,16 @@ class PostsController < ApplicationController
   end
 
   def new
-    @post = Post.new
+    @post = PostsTag.new
   end
 
   def create
-    @post = Post.new(post_params)
-    if @post.save
+    @post = PostsTag.new(post_params)
+    if @post.valid?
+      @post.save
       redirect_to root_path
     else
-      render 'index'
+      render 'new'
     end
   end
 
@@ -48,10 +48,10 @@ class PostsController < ApplicationController
   def search
     @posts = Post.search(params[:keyword])
   end
-  
+
   private
 
   def post_params
-    params.require(:post).permit(:title, :content, :image).merge(user_id: current_user.id)
+    params.require(:posts_tag).permit(:title, :content, :image, :name).merge(user_id: current_user.id)
   end
 end
