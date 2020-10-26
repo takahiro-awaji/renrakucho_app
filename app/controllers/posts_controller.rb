@@ -1,4 +1,6 @@
 class PostsController < ApplicationController
+  before_action :move_to_index, except: [:index, :show, :search]
+
   def index
     @post = Post.new
     @posts = Post.all.order(created_at: :desc)
@@ -43,6 +45,10 @@ class PostsController < ApplicationController
     end
   end
 
+  def search
+    @posts = Post.search(params[:keyword])
+  end
+  
   private
 
   def post_params
