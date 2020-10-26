@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>RenrakuchoApp</title>
+    <title>連絡帳app</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -11,20 +11,35 @@
 
   <body>
     <header>
-      <h1>連絡帳app</h1>
-      <% if user_signed_in? %>
-        <div>
-          <%= link_to "ホームへ戻る", root_path %>
+      <h1 class="title">
+        <div class="logo">
+          <%= link_to image_tag('school.png', class: "logo"), "/" %>
         </div>
-        <div>
-          <%= link_to "ログアウト", destroy_user_session_path , method: :delete %>
+        <% if user_signed_in? %>
+        <div class="login-user">
+          ログインしているユーザー： <%= current_user.name %>
+        </div>
+        <% end %>
+      </h1>
+      <% if user_signed_in? %>
+        <div class="header-menu">
+          <ul class="header-left">
+            <li><%= link_to "新規投稿", new_post_path %></li>
+          </ul>
+          <ul class="header-right">
+            <li><%= link_to "ホームへ戻る", root_path, class: "home"%></li>
+            <li><%= link_to "ログアウト", destroy_user_session_path , method: :delete, class: "logout" %></li>
+          </ul>
         </div>
       <% else %>
-        <div>
-          <%= link_to "ログイン", user_session_path %>
-        </div>
-        <div>
-          <%= link_to "新規登録", new_user_registration_path %>
+        <div class="header-menu">
+          <ul class="header-left">
+            <li>about</li>
+          </ul>
+          <ul class="header-right">
+            <li><%= link_to "新規登録", new_user_registration_path, class: "new-user" %></li>
+            <li><%= link_to "ログイン", user_session_path, class: "login" %></li>
+          </ul>
         </div>
       <% end %>
     </header>

@@ -1,23 +1,94 @@
 header {
+  height: 100px;
   background-color: lightpink;
 }
 
+.title {
+  display: flex;
+  justify-content: space-around;
+}
+.logo {
+  height: 70px;
+  width: 150px;
+}
+.login-user {
+  height: 20px;
+  margin: 10px 15px 0 0;
+  color: blue;
+}
+.mypage {
+  border: 2px solid lightgray;
+  width: 50%;
+}
 
+.header-menu {
+  display: flex;
+  justify-content: space-between;
+}
+
+.header-left {
+  list-style: none;
+}
+
+.header-right {
+  display: flex;
+  list-style: none;
+}
+
+.new-user {
+  border: 1px solid black;
+  padding: 10px;
+}
+.logout, .login {
+  margin-left: 15px;
+  padding: 10px;
+  border: 1px solid black;
+}
+
+.home {
+  height: 20px;
+  font-size: 16px;
+  border: 1px solid black;
+  padding: 10px;
+}
 .contents {
   background-color: lightblue;
 }
 
 .content {
+  height: 20px;
   width: 100%;
-  padding-bottom: 30px;
   display: flex;
 }
 
-.post-user {
-  font-size: 14px;
+.content-table {
+  display: flex;
+  flex-direction: column;
 }
-.post-content {
+
+.content-title {
+  width: 450px;
+  margin-bottom: 20px;
+}
+.content-form {
+  height: 300px;
+  width: 450px;
+}
+
+.post-user {
   font-size: 16px;
+  margin-left: 10px;
+}
+
+.post-title {
+  font-size: 24px;
+  margin: 0 0 20px 20px;
+
+}
+
+.post-content {
+  height: 200px;
+  font-size: 18px;
   margin-left: 20px;
 }
 
