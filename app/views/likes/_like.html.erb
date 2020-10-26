@@ -1,0 +1,17 @@
+<div id="<%= @post.id %> like">
+  <% if !Like.exists?(user_id: current_user.id, post_id: @post.id) %>
+    <%= link_to post_likes_path(@post), method: :post, remote: true do %>
+      <div class="i far fa-thumbs-up">
+      <span>投稿を保存する</span>
+      <%= @post.likes.length %>
+      </div>
+    <% end %>
+  <% else %>
+    <%= link_to post_like_path(@post), method: :delete, remote: true do %>
+      <div class="i far fa-thumbs-up">
+      <span>保存を解除する</span>
+      <%= @post.likes.length %>
+      </div>
+    <% end %>
+  <% end %>
+</div>

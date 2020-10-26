@@ -10,5 +10,6 @@
 </div>
 <%= image_tag @post.image.variant(resize: '200x200') if @post.image.attached?%>
 
+<%= render partial: 'likes/like' %>
 <%= link_to '編集', edit_post_path(@post) %>
 <%= link_to '削除', post_path, method: :delete, data: {confirm: "削除しますか？"} %>
