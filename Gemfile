@@ -57,7 +57,7 @@ gem 'pry-rails'
 gem 'devise'
 gem 'mini_magick'
 gem 'image_processing'
-
+gem 'aws-sdk-s3', require: false
 group :production do
 gem 'rails_12factor'
   # gem 'unicorn', '5.4.1'
