@@ -59,5 +59,6 @@ gem 'mini_magick'
 gem 'image_processing'
 
 group :production do
-  gem 'unicorn', '5.4.1'
+gem 'rails_12factor'
+  # gem 'unicorn', '5.4.1'
 end
